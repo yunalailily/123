@@ -1,13 +1,8 @@
 #pragma once
 #include <iostream>
-#include "Player.h"
 using namespace std;
-class Dealer {
-private:
-	Player p;
+class Player {
 public:
-	Dealer();
-	void deal();
-	int randomCard();
-	int getMoreCard();
+	Player();
 };
+
