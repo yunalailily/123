@@ -3,13 +3,10 @@
 #include <iostream>
 using namespace std;
 int main() {
-	cout << "Åwªï¨Ó¨ì21ÂI¹CÀ¸~" << endl << "½Ð¿é¤Jª±®a©m¦W:";
-	string n;
-	cin >> n;
+	cout << "æ­¡è¿Žä¾†åˆ°21é»žéŠæˆ²~" << endl;
 	Dealer computer;
 	Player p;
-	p.setName(n);
-	cout << "¹CÀ¸¶}©l!" << endl;
+	cout << "éŠæˆ²é–‹å§‹!" << endl;
 	computer.deal();
 	computer.getMoreCard();
 }
