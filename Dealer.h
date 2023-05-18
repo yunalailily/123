@@ -2,15 +2,21 @@
 #define DEALER_H
 #include<string>
 using namespace std;
-
+#include <iostream>
+#include "Player.h"
 class Dealer
 {
 private:
-	int pokerL[5]; //²ø®aµP
-	int pokerNumL; //²ø®aµP¼Æ
+	Player p;
+	int pokerL[5]; //èŽŠå®¶ç‰Œ
+	int pokerNumL; //èŽŠå®¶ç‰Œæ•¸
 public:
-	string getPokerL(); //Åã¥Ü²ø®aµP
-	int getSumL(); //§PÂ_²ø®a¬O§_>=17
+	string getPokerL(); //é¡¯ç¤ºèŽŠå®¶ç‰Œ
+	int getSumL(); //åˆ¤æ–·èŽŠå®¶æ˜¯å¦>=17
+	Dealer();
+	void deal();
+	int randomCard();
+	int getMoreCard();
 };
 #endif 
 
