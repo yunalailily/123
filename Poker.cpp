@@ -13,7 +13,6 @@ Poker::Poker()
 	{
 		poker[i] = i;
 	}
-	//poker value
 	for (int i = 0; i < 52; i++)
 	{
 		if (poker[i] % 13 < 10) pValue[i] = i % 13 + 1;
