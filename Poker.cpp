@@ -30,7 +30,7 @@ Poker::Poker()
 	for (i = 0; i < 5; i++)
 	{
 		pokerP[i] = 0;
-		pokerD[i] = 0; //(pokerB[i])
+		pokerD[i] = 0; 
 	}
 	pokerPNum = 0;
 	pokerDNum = 0;
