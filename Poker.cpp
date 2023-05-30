@@ -30,7 +30,7 @@ Poker::Poker()
 	for (i = 0; i < 5; i++)
 	{
 		pokerP[i] = 0;
-		pokerD[i] = 0; 
+		pokerD[i] = 0;
 	}
 	pokerPNum = 0;
 	pokerDNum = 0;
@@ -57,11 +57,11 @@ int Poker::getSumP() {
 
 	return sum;
 }
-int Poker::getSumD() { 
+int Poker::getSumD() {
 	int sum = 0;
 
-	for (int i = 0; i < pokerDNum; i++) 
-		sum = sum + pValue[pokerD[i]]; 
+	for (int i = 0; i < pokerDNum; i++)
+		sum = sum + pValue[pokerD[i]];
 
 	return sum;
 }
@@ -73,16 +73,16 @@ string Poker::getPokerP() {
 
 	return result;
 }
-string Poker::getPokerD() { 
+string Poker::getPokerD() {
 	string result = "";
 
 	for (int i = 0; i < pokerDNum; i++)
-		result = result + pName[pokerD[i]] + " "; 
+		result = result + pName[pokerD[i]] + " ";
 
 	return result;
 }
 
-void Poker::checkP() { 
+void Poker::checkP() {
 	if (pokerPNum >= 5)
 	{
 		cout << "You already have 5 cards" << endl;
@@ -97,88 +97,89 @@ void Poker::checkP() {
 
 			cout << "You LOSE" << endl;
 			cout << "Game over" << endl;
-			return 0;
+			exit(0);
 		}
 		else if (getSumP() == 21)
 		{
 			cout << "Your cards:" << getPokerP() << endl;
 			cout << "You WIN " << endl;
-			return 0;
+			exit(0);
 		}
 
 
 	}
 }
-void Poker::checkD() { 
+void Poker::checkD() {
 	if (pokerDNum >= 5)
 	{
-		if (getSumP() > getSumD())  
+		if (getSumP() > getSumD())
 		{
-			cout << "PC:" << getPokerD() << endl; 
-			cout << getSumD() << " points" << endl; 
+			cout << "PC:" << getPokerD() << endl;
+			cout << getSumD() << " points" << endl;
 			cout << "You WIN" << endl;
-			return 0;
+			exit(0);
 
 		}
 		else if (getSumP() == getSumD())
 		{
-			cout << "PC:" << getPokerD() << endl; 
+			cout << "PC:" << getPokerD() << endl;
 			cout << getSumD() << " points" << endl;
 			cout << "Tie" << endl;
-			return 0;
+			exit(0);
 		}
 		else if (getSumP() < getSumD())
 		{
-			cout << "PC:" << getPokerD() << endl; 
-			cout << getSumD() << " points" << endl; 
+			cout << "PC:" << getPokerD() << endl;
+			cout << getSumD() << " points" << endl;
 			cout << "You LOSE" << endl;
-			return 0;
+			exit(0);
 
 		}
 	}
 	else
 	{
-		pokerD[pokerDNum++] = rand() % 52; 
-		if (getSumD() > 21)  
+		pokerD[pokerDNum++] = rand() % 52;
+		if (getSumD() > 21)
 		{
-			cout << "PC:" << getPokerD() << endl;  
-			cout << getSumD() << " points" << endl; 
+			cout << "PC:" << getPokerD() << endl;
+			cout << getSumD() << " points" << endl;
 			cout << "You WIN" << endl;
-			return 0;
+			exit(0);
 		}
-		else    check()
+		else    
+			check();
 
 	}
 }
 
 void Poker::check() {
-	if (getSumD() >= 17) 
+	if (getSumD() >= 17)
 	{
-		if (getSumD() > getSumP()) 
+		if (getSumD() > getSumP())
 		{
-			cout << "PC:" << getPokerD() << endl; 
-			cout << getSumD() << " points" << endl; 
+			cout << "PC:" << getPokerD() << endl;
+			cout << getSumD() << " points" << endl;
 			cout << "You LOSE" << endl;
-			return 0;
+			exit(0);
 		}
-		else if (getSumP() == getSumD())  
+		else if (getSumP() == getSumD())
 		{
-			cout << "PC:" << getPokerD() << endl;  
+			cout << "PC:" << getPokerD() << endl;
 			cout << getSumD() << " points" << endl;
 			cout << "TIE" << endl;
-			return 0;
+			exit(0);
 		}
 		else
 		{
-			cout << "PC:" << getPokerD() << endl; 
-			cout << getSumD() << " points" << endl; 
+			cout << "PC:" << getPokerD() << endl;
+			cout << getSumD() << " points" << endl;
 			cout << "You WIN" << endl;
-			return 0;
+			exit(0);
 		}
 	}
 	else
 	{
-		checkD(); 
+		checkD();
 
 	}
 
