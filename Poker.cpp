@@ -5,35 +5,34 @@
 #include <array>
 #include "Poker.h"
 using namespace std;
-Poker::Poker()
+Poker::Poker()//撲克設定初值
 {
-	int i = 0;
-	poker[0] = 0;
-	for (i = 0; i < 52; i++)
+	for (int i = 0; i < 52; i++)//設定52張牌的牌面為0~51
 	{
 		poker[i] = i;
 	}
-	for (int i = 0; i < 52; i++)
+	for (int i = 0; i < 52; i++)//設定不顯示的52張牌的分數
 	{
-		if (poker[i] % 13 < 10) pValue[i] = i % 13 + 1;
-		else pValue[i] = 10;
+		if (poker[i] % 13 < 10) //A~10,J,Q,K共13種點數所以mod13 若小於10則為A~10(A=1點,其餘依照牌面)
+			pValue[i] = i % 13 + 1;//+1因為從0開始
+		else pValue[i] = 10;//J,Q,K分數計算為10點
 	}
-	const string pokerNumber[13] =
+	const string pokerNumber[13] =//設定會顯示的撲克牌牌面
 	{ "A","2","3","4","5","6","7","8","9","10","J","Q","K" };
 
 	for (int i = 0; i < 52; i++)
 	{
-		int j = i % 13;
+		int j = i % 13;//不用+1因為不是算點數(j=0~12)
 		pName[i] = pokerNumber[j];
 	}
 
-	for (i = 0; i < 5; i++)
+	for (int i = 0; i < 5; i++)//莊家跟玩家一共五張牌 設定初值=0
 	{
 		pokerP[i] = 0;
 		pokerD[i] = 0;
 	}
-	pokerPNum = 0;
-	pokerDNum = 0;
+	pokerPNum = 0;//設定玩家總分=0
+	pokerDNum = 0;//設定莊家總分=0
 }
 
 void Poker::deal()
@@ -53,11 +52,11 @@ int Poker::getSumP() {
 	int sum = 0;
 
 	for (int i = 0; i < pokerPNum; i++)
-		sum = sum + pValue[pokerP[i]];
+		sum = sum + pValue[pokerP[i]];//poker[P[i]]=玩家的第?張牌//pValue[pokerP[i]]=第?張牌的點數加至sum中
 
 	return sum;
 }
-int Poker::getSumD() {
+int Poker::getSumD() {//莊家的總點數 同上
 	int sum = 0;
 
 	for (int i = 0; i < pokerDNum; i++)
