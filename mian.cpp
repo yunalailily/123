@@ -13,7 +13,7 @@ int main()
         cout << "Ask for a card? Y/N/Q";
         cin >> card;
         if (card == 'Y') {
-            p.checkP();
+            p.checkP();//檢查玩家點數和牌數
         }
         else if (card == 'N') {
             p.check();
