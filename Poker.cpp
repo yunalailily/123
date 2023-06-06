@@ -81,24 +81,24 @@ string Poker::getPokerD() {
 	return result;
 }
 
-void Poker::checkP() {
-	if (pokerPNum >= 5)
+void Poker::checkP() {//檢查玩家點數和牌數
+	if (pokerPNum >= 5)//玩家已有5張牌 不得再要
 	{
 		cout << "You already have 5 cards" << endl;
 	}
 	else
 	{
-		pokerP[pokerPNum++] = rand() % 52;
+		pokerP[pokerPNum++] = rand() % 52;//顯示玩家點數
 		cout << "You:" << getPokerP() << endl;
 		cout << getSumP() << " points" << endl;
-		if (getSumP() > 21)
+		if (getSumP() > 21)//>21點為爆牌=>輸=>遊戲結束
 		{
 
 			cout << "You LOSE" << endl;
 			cout << "Game over" << endl;
 			exit(0);
 		}
-		else if (getSumP() == 21)
+		else if (getSumP() == 21)//=21點=>玩家勝利
 		{
 			cout << "Your cards:" << getPokerP() << endl;
 			cout << "You WIN " << endl;
@@ -108,10 +108,10 @@ void Poker::checkP() {
 
 	}
 }
-void Poker::checkD() {
-	if (pokerDNum >= 5)
+void Poker::checkD() {//檢查莊家點數和牌數
+	if (pokerDNum >= 5)//莊家已有5張牌
 	{
-		if (getSumP() > getSumD())
+		if (getSumP() > getSumD())//和玩家比點數 若莊家小於玩家=>玩家贏
 		{
 			cout << "PC:" << getPokerD() << endl;
 			cout << getSumD() << " points" << endl;
@@ -119,14 +119,14 @@ void Poker::checkD() {
 			exit(0);
 
 		}
-		else if (getSumP() == getSumD())
+		else if (getSumP() == getSumD())//和玩家比點數 若莊家小於玩家=平手
 		{
 			cout << "PC:" << getPokerD() << endl;
 			cout << getSumD() << " points" << endl;
 			cout << "Tie" << endl;
 			exit(0);
 		}
-		else if (getSumP() < getSumD())
+		else if (getSumP() < getSumD())//和玩家比點數 若莊家大於玩家=>玩家輸
 		{
 			cout << "PC:" << getPokerD() << endl;
 			cout << getSumD() << " points" << endl;
@@ -135,40 +135,40 @@ void Poker::checkD() {
 
 		}
 	}
-	else
+	else//莊家未達5張牌 莊家要牌
 	{
 		pokerD[pokerDNum++] = rand() % 52;
-		if (getSumD() > 21)
+		if (getSumD() > 21)//莊家>21點為爆牌=>玩家贏
 		{
 			cout << "PC:" << getPokerD() << endl;
 			cout << getSumD() << " points" << endl;
 			cout << "You WIN" << endl;
 			exit(0);
 		}
-		else    
+		else//若未爆牌 莊家如不足17點便需加牌直至超過或等於17點 
 			check();
 
 	}
 }
 
 void Poker::check() {
-	if (getSumD() >= 17)
+	if (getSumD() >= 17)//檢查莊家是超過17點
 	{
-		if (getSumD() > getSumP())
+		if (getSumD() > getSumP())//和玩家比點數 若莊家大於玩家=>玩家輸
 		{
 			cout << "PC:" << getPokerD() << endl;
 			cout << getSumD() << " points" << endl;
 			cout << "You LOSE" << endl;
 			exit(0);
 		}
-		else if (getSumP() == getSumD())
+		else if (getSumP() == getSumD())//和玩家比點數 若莊家小於玩家=平手
 		{
 			cout << "PC:" << getPokerD() << endl;
 			cout << getSumD() << " points" << endl;
 			cout << "TIE" << endl;
 			exit(0);
 		}
-		else
+		else//和玩家比點數 若莊家小於玩家=>玩家贏
 		{
 			cout << "PC:" << getPokerD() << endl;
 			cout << getSumD() << " points" << endl;
@@ -176,7 +176,7 @@ void Poker::check() {
 			exit(0);
 		}
 	}
-	else
+	else//若未超過17點 檢查莊家點數和牌數
 	{
 		checkD();
 
