@@ -16,7 +16,7 @@ int main()
             p.checkP();//檢查玩家點數和牌數
         }
         else if (card == 'N') {
-            p.check();
+            p.check();//檢查莊家是超過17點
         }
         else      
             return 0;
